@@ -445,6 +445,38 @@ h3 {
   font-weight: 600;
 }
 
+.weather-source {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed rgba(26, 22, 18, 0.12);
+}
+
+.weather-source a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--mountain);
+  text-decoration: none;
+  font-family: 'Shippori Mincho', serif;
+  letter-spacing: 0.1em;
+  padding: 4px 10px;
+  background: var(--paper-warm);
+  border-radius: 2px;
+  transition: all 0.2s;
+}
+
+.weather-source a:hover {
+  background: var(--mountain);
+  color: var(--paper);
+}
+
+.weather-source a::after {
+  content: '↗';
+  font-size: 11px;
+  opacity: 0.7;
+}
+
 /* 旅館表格 */
 .hotel-grid {
   display: grid;
@@ -1088,13 +1120,16 @@ footer::before {
   <h2>天氣預報</h2>
 
   <div class="weather-grid">
-    <div class="weather-day warm">
+    <div class="weather-day rain">
       <div class="weather-header">
         <div class="weather-date">4/18<span class="day">SAT</span></div>
-        <div class="weather-temp">22° / 13°</div>
+        <div class="weather-temp">21° / 14°</div>
       </div>
       <div class="weather-place">名古屋</div>
-      <div class="weather-cond">☀️ 晴天 · 降雨10% · 體感舒適</div>
+      <div class="weather-cond">🌧️ <span class="emphasis">曇時雨！降雨80%(10mm)</span> · 下機就需要傘</div>
+      <div class="weather-source">
+        <a href="https://tenki.jp/forecast/5/26/5110/23100/10days.html" target="_blank" rel="noopener">名古屋市 · tenki.jp 最新預報</a>
+      </div>
     </div>
 
     <div class="weather-day warm">
@@ -1103,7 +1138,11 @@ footer::before {
         <div class="weather-temp">27° / 13°</div>
       </div>
       <div class="weather-place">高山 · 上高地 · 安曇野</div>
-      <div class="weather-cond">☀️ <span class="emphasis">夏日！紫外線強</span> · 上高地山區約9–14°C</div>
+      <div class="weather-cond">☀️ <span class="emphasis">夏日！</span> · 早上可能一時雨(50%) · 上高地山區約13–18°C</div>
+      <div class="weather-source">
+        <a href="https://tenki.jp/forecast/5/24/5220/21203/10days.html" target="_blank" rel="noopener">高山市預報</a>
+        <a href="https://tenki.jp/forecast/3/23/4820/20220/10days.html" target="_blank" rel="noopener" style="margin-left: 6px;">安曇野市預報</a>
+      </div>
     </div>
 
     <div class="weather-day cold">
@@ -1112,33 +1151,49 @@ footer::before {
         <div class="weather-temp">5° / -5°</div>
       </div>
       <div class="weather-place">立山室堂 · 海拔2,450m</div>
-      <div class="weather-cond">❄️ 多雲 · <span class="emphasis">山上像冬天，有雪</span></div>
+      <div class="weather-cond">❄️ 晴 · <span class="emphasis">山上像冬天，有雪</span>(平地名古屋25°/13°)</div>
+      <div class="weather-source">
+        <a href="https://tenki.jp/leisure/4/19/126/12223/10days.html" target="_blank" rel="noopener">雪之大谷(室堂)預報</a>
+        <a href="https://tenki.jp/forecast/4/19/5620/16201/10days.html" target="_blank" rel="noopener" style="margin-left: 6px;">富山市預報</a>
+      </div>
     </div>
 
-    <div class="weather-day rain">
+    <div class="weather-day warm">
       <div class="weather-header">
         <div class="weather-date">4/21<span class="day">TUE</span></div>
-        <div class="weather-temp">23° / 10°</div>
+        <div class="weather-temp">27° / 14°</div>
       </div>
       <div class="weather-place">砺波 · 白川鄉 · 名古屋</div>
-      <div class="weather-cond">🌧️ <span class="emphasis">雨 · 降雨60%，務必帶傘</span></div>
+      <div class="weather-cond">☀️ <span class="emphasis">晴天！夏日</span> · 降雨10% · 適合戶外鬱金香展</div>
+      <div class="weather-source">
+        <a href="https://tenki.jp/forecast/4/19/5620/16201/10days.html" target="_blank" rel="noopener">砺波·富山預報</a>
+        <a href="https://tenki.jp/forecast/5/26/5110/23100/10days.html" target="_blank" rel="noopener" style="margin-left: 6px;">名古屋預報</a>
+      </div>
     </div>
 
     <div class="weather-day warm">
       <div class="weather-header">
         <div class="weather-date">4/22<span class="day">WED</span></div>
-        <div class="weather-temp">25° / 12°</div>
+        <div class="weather-temp">25° / 14°</div>
       </div>
       <div class="weather-place">犬山 · 名古屋</div>
-      <div class="weather-cond">☀️ 晴 · 降雨0% · 舒適</div>
+      <div class="weather-cond">⛅ 晴轉雨 · <span class="emphasis">傍晚回機場可能有雨(50%)</span></div>
+      <div class="weather-source">
+        <a href="https://tenki.jp/forecast/5/26/5110/23215/10days.html" target="_blank" rel="noopener">犬山市預報</a>
+        <a href="https://tenki.jp/forecast/5/26/5110/23100/10days.html" target="_blank" rel="noopener" style="margin-left: 6px;">名古屋預報</a>
+      </div>
     </div>
   </div>
 
   <div class="card" style="margin-top: 20px; background: var(--accent-soft); border-color: var(--sakura-deep);">
-    <div class="card-title" style="color: var(--sakura-deep);">⚠️ 關鍵提醒</div>
+    <div class="card-title" style="color: var(--sakura-deep);">⚠️ 關鍵提醒(4/17 最新預報)</div>
     <div style="font-size: 14px; line-height: 1.8;">
-      溫差極大：平地 25°C ↔ 立山 -5°C，差距<strong>30°C 以上</strong>。<br>
-      <strong>4/20 立山</strong>務必保暖；<strong>4/21 白川鄉</strong>務必帶傘。
+      ① <strong>出發當天 4/18 有雨</strong>(降雨80%)，下機後就需要傘，手提行李內備一把！<br>
+      ② <strong>4/19 夏日 27°C</strong>，但早上可能一時雨；上高地山區仍涼，洋蔥式穿搭<br>
+      ③ <strong>4/20 立山保暖</strong>不變，平地回程會熱<br>
+      ④ <strong>4/21 變晴天！</strong>(之前預報雨天已修正)，戶外鬱金香展很適合<br>
+      ⑤ <strong>4/22 傍晚回機場可能遇雨</strong>，傘留在手邊<br>
+      <span style="color: var(--sumi); opacity: 0.7; font-size: 12px;">資料來源：日本氣象協會 tenki.jp(氣象廳 JMA 資料)，2026/4/17 發表</span>
     </div>
   </div>
 </section>
@@ -1151,15 +1206,16 @@ footer::before {
   <h2>每日穿搭</h2>
 
   <div class="itinerary-day">
-    <div class="itinerary-head">
-      <div class="day-num">DAY 1 · 4/18</div>
-      <div class="day-title">名古屋 · 舒適好天氣</div>
+    <div class="itinerary-head" style="background: linear-gradient(135deg, #6c7a89, var(--ink));">
+      <div class="day-num">DAY 1 · 4/18 ☔</div>
+      <div class="day-title">名古屋 · 下機遇雨！</div>
     </div>
     <div class="itinerary-body">
       <ul class="tip-list">
-        <li><strong>上身</strong>：長袖T恤或薄毛衣 + 薄外套</li>
-        <li><strong>下身</strong>：一般長褲</li>
-        <li><strong>鞋</strong>：好走的球鞋</li>
+        <li><strong>上身</strong>：長袖T恤 + 薄防水外套/風衣</li>
+        <li><strong>下身</strong>：一般長褲（最好快乾）</li>
+        <li><strong>鞋</strong>：<span class="emphasis">防水鞋</span>（下機後可能直接淋雨）</li>
+        <li><strong>必備</strong>：<span class="emphasis">折傘要放在隨身手提行李！</span>(不是託運！)</li>
       </ul>
     </div>
   </div>
@@ -1214,17 +1270,17 @@ footer::before {
   </div>
 
   <div class="itinerary-day">
-    <div class="itinerary-head" style="background: linear-gradient(135deg, #6c7a89, var(--ink));">
-      <div class="day-num">DAY 4 · 4/21 ☔</div>
-      <div class="day-title">白川鄉 · 雨天</div>
+    <div class="itinerary-head">
+      <div class="day-num">DAY 4 · 4/21 ☀️</div>
+      <div class="day-title">白川鄉 · 晴天夏日(預報變動！)</div>
     </div>
     <div class="itinerary-body">
       <ul class="tip-list">
-        <li><strong>上身</strong>：長袖 + 薄毛衣 + 防水外套/風衣（非羽絨）</li>
-        <li><strong>下身</strong>：防水或快乾長褲</li>
-        <li><strong>鞋</strong>：防水鞋（白川鄉可能泥濘）</li>
-        <li><strong>必備</strong>：<span class="emphasis">折傘（早上戶外鬱金香展！）</span></li>
-        <li>背包防水套 或 夾鏈袋保護相機手機</li>
+        <li><strong>上身</strong>：短袖T恤 + 薄外套(早晚涼)</li>
+        <li><strong>下身</strong>：一般長褲</li>
+        <li><strong>鞋</strong>：好走的球鞋</li>
+        <li><strong>必備</strong>：<span class="emphasis">防曬、太陽眼鏡、帽子</span>（戶外鬱金香花展紫外線強！）</li>
+        <li>補充水分（白天最高27°C）</li>
       </ul>
     </div>
   </div>
@@ -1232,7 +1288,7 @@ footer::before {
   <div class="itinerary-day">
     <div class="itinerary-head">
       <div class="day-num">DAY 5 · 4/22</div>
-      <div class="day-title">犬山 → 名古屋 · 晴好</div>
+      <div class="day-title">犬山 → 名古屋 · 傍晚可能有雨</div>
     </div>
     <div class="itinerary-body">
       <ul class="tip-list">
@@ -1240,6 +1296,7 @@ footer::before {
         <li><strong>下身</strong>：一般長褲</li>
         <li><strong>鞋</strong>：好走的鞋（犬山城下町要走一整個上午）</li>
         <li><strong>配件</strong>：太陽眼鏡、防曬、帽子</li>
+        <li><span class="emphasis">⚠️ 折傘留在身邊</span>（傍晚回機場路上可能遇雨，降雨50%）</li>
       </ul>
     </div>
   </div>
