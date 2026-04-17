@@ -743,6 +743,168 @@ footer::before {
   opacity: 0.7;
 }
 
+/* 班機資訊 */
+.flight-card {
+  background: #fff;
+  border: 1px solid rgba(26, 22, 18, 0.08);
+  border-radius: 4px;
+  padding: 20px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow-soft);
+  position: relative;
+  overflow: hidden;
+}
+
+.flight-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(to right, var(--sakura-deep), var(--gold));
+}
+
+.flight-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed rgba(26, 22, 18, 0.15);
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.flight-direction {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  color: var(--sakura-deep);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.flight-no {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  background: var(--paper-warm);
+  padding: 3px 10px;
+  border-radius: 2px;
+  letter-spacing: 0.1em;
+}
+
+.flight-route {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 12px;
+  align-items: center;
+}
+
+.flight-point {
+  text-align: center;
+}
+
+.flight-point.arrival {
+  text-align: center;
+}
+
+.flight-time {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+}
+
+.flight-airport {
+  font-size: 12px;
+  color: var(--sumi);
+  margin-top: 4px;
+  letter-spacing: 0.05em;
+}
+
+.flight-date {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 11px;
+  color: var(--sakura-deep);
+  margin-top: 6px;
+  letter-spacing: 0.1em;
+}
+
+.flight-arrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.flight-duration {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 11px;
+  color: var(--sumi);
+  opacity: 0.7;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.flight-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  font-size: 18px;
+}
+
+.flight-plane {
+  font-size: 16px;
+  color: var(--sakura-deep);
+}
+
+.gather-info {
+  background: linear-gradient(135deg, var(--ink), #3a332c);
+  color: var(--paper);
+  border-radius: 4px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.gather-info h4 {
+  font-family: 'Shippori Mincho', serif;
+  color: var(--gold);
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.gather-row {
+  display: flex;
+  padding: 6px 0;
+  font-size: 14px;
+  gap: 12px;
+  align-items: baseline;
+}
+
+.gather-row strong {
+  color: var(--sakura);
+  min-width: 65px;
+  font-family: 'Shippori Mincho', serif;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+}
+
+.gather-big {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+}
+
 /* 行程總覽 */
 .trip-map {
   display: grid;
@@ -800,6 +962,7 @@ footer::before {
 <nav class="toc">
   <h3>目次 · Index</h3>
   <ul>
+    <li><a href="#flight">班機資訊</a></li>
     <li><a href="#overview">行程總覽</a></li>
     <li><a href="#weather">天氣預報</a></li>
     <li><a href="#outfit">穿搭建議</a></li>
@@ -810,6 +973,85 @@ footer::before {
     <li><a href="#emergency">緊急聯絡</a></li>
   </ul>
 </nav>
+
+<!-- 班機資訊 -->
+<section id="flight">
+  <div class="section-label">Flight Information</div>
+  <h2>班機資訊</h2>
+
+  <div class="gather-info">
+    <h4>✈️ 集合資訊</h4>
+    <div class="gather-row"><strong>日期</strong><span class="gather-big">04 / 18</span></div>
+    <div class="gather-row"><strong>時間</strong>06:30 集合</div>
+    <div class="gather-row"><strong>地點</strong>桃園機場 第一航廈 台灣虎航【7】號 櫃台</div>
+    <div class="gather-row" style="margin-top: 10px; padding-top: 10px; border-top: 1px dashed rgba(245, 239, 228, 0.2); font-size: 12px; opacity: 0.75;">
+      ※ 航空公司電話:(02) 2658-0255<br>
+      ※ 送機人員:0921-809-206(第一航廈)
+    </div>
+  </div>
+
+  <!-- 去程 -->
+  <div class="flight-card">
+    <div class="flight-header">
+      <div class="flight-direction">→ 去程</div>
+      <div class="flight-no">台灣虎航 IT206</div>
+    </div>
+    <div class="flight-route">
+      <div class="flight-point">
+        <div class="flight-time">09:00</div>
+        <div class="flight-airport">桃園 TPE</div>
+        <div class="flight-date">4/18 (六)</div>
+      </div>
+      <div class="flight-arrow">
+        <div class="flight-plane">✈</div>
+        <div class="flight-line">──────</div>
+        <div class="flight-duration">2小時55分</div>
+      </div>
+      <div class="flight-point arrival">
+        <div class="flight-time">12:55</div>
+        <div class="flight-airport">名古屋中部 NGO</div>
+        <div class="flight-date">4/18 (六)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 回程 -->
+  <div class="flight-card">
+    <div class="flight-header">
+      <div class="flight-direction">← 回程</div>
+      <div class="flight-no">台灣虎航 IT209</div>
+    </div>
+    <div class="flight-route">
+      <div class="flight-point">
+        <div class="flight-time">21:45</div>
+        <div class="flight-airport">名古屋中部 NGO</div>
+        <div class="flight-date">4/22 (三)</div>
+      </div>
+      <div class="flight-arrow">
+        <div class="flight-plane">✈</div>
+        <div class="flight-line">──────</div>
+        <div class="flight-duration">3小時</div>
+      </div>
+      <div class="flight-point arrival">
+        <div class="flight-time">23:45</div>
+        <div class="flight-airport">桃園 TPE</div>
+        <div class="flight-date">4/22 (三)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="background: var(--accent-soft); border-color: var(--sakura-deep); margin-top: 16px;">
+    <div class="card-title" style="color: var(--sakura-deep); font-size: 14px;">📋 報到小提醒</div>
+    <div style="font-size: 13.5px; line-height: 1.75;">
+      建議 <strong>至少提前 2 小時</strong>(04:30 前)到達機場<br>
+      記得攜帶護照(效期 6 個月以上)<br>
+      行動電源、鋰電池必須 <strong>隨身攜帶</strong>,不可託運<br>
+      液體類單瓶 ≤100ml,總量裝入 1 公升透明夾鏈袋
+    </div>
+  </div>
+</section>
+
+<div class="divider">· · ·</div>
 
 <!-- 行程總覽 -->
 <section id="overview">
@@ -858,10 +1100,10 @@ footer::before {
     <div class="weather-day warm">
       <div class="weather-header">
         <div class="weather-date">4/19<span class="day">SUN</span></div>
-        <div class="weather-temp">24° / 12°</div>
+        <div class="weather-temp">27° / 13°</div>
       </div>
       <div class="weather-place">高山 · 上高地 · 安曇野</div>
-      <div class="weather-cond">☀️ 晴 · 紫外線強 · 上高地山區約9–14°C</div>
+      <div class="weather-cond">☀️ <span class="emphasis">夏日！紫外線強</span> · 上高地山區約9–14°C</div>
     </div>
 
     <div class="weather-day cold">
